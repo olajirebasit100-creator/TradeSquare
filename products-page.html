@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product List</title>
+
+  <link rel="stylesheet" href="styles/body.css">
+  <link rel="stylesheet" href="styles/header.css">
+  <link rel="stylesheet" href="styles/footer.css">
+  <link rel="stylesheet" href="styles/product-listing/products-main.css">
+  <link rel="stylesheet" href="styles/product-listing/products-header.css">
+  
+</head>
+<body>
+   <header>
+
+        <div class="header-top">
+
+            <h1 class="logo">
+                <span class="logo-text">NexMart</span>
+                <span class="logo-version">1.0</span>
+                <img class="logo-mobile" src="images/icons/alphabet.png" alt="">
+            </h1>
+
+        </div>
+
+        <div class="header-middle">
+
+            <div class="search-box">
+
+                <div class="search-input" >
+                    <img class="nav-icon" src="images/icons/search.svg" alt="">
+                    <input type="text" placeholder="Search for cars, phones, apartments..." id="search">
+                </div>
+
+                <button class="location-btn">
+                    <img class="nav-icon" src="images/icons/maps-and-flags.png" alt="">
+                    <span>Lagos</span>
+                    <img class="nav-icon" src="images/icons/down-chevron.png" alt="">
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="header-bottom">
+
+            <div class="nav-links">
+
+                <a href="#">
+                    <img class="nav-icon" src="images/icons/camera.png" alt="">
+                    <span>Sell</span>
+                </a>
+
+                <a href="#">
+                    <img class="nav-icon" src="images/icons/user (1).png" alt="">
+                    <span>My Account</span>
+                </a>
+
+                <a href="#" class="cart">
+                    <img class="nav-icon-cart" src="images/icons/shopping-cart.png" alt="">
+                    <p class="cart-count">8</p>
+                </a>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+  <section class="listing-header">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="NexMart.html">Home</a>
+      <span>/</span>
+      <span>Available Products</span>
+    </nav>
+
+    <div class="listing-header-content">
+      <div class="listing-header-info">
+        <h1>Available Products</h1>
+        <p><span class="js-available-product"></span> Products Available</p>
+      </div>
+
+      <div class="listing-sort">
+        <label for="sort-products">Sort by</label>
+
+        <select id="sort-products">
+          <option>Featured</option>
+          <option>Newest</option>
+          <option>Price: Low to High</option>
+          <option>Price: High to Low</option>
+        </select>
+      </div>
+    </div>
+  </section>
+
+  <section class="products-section">
+    <div class="products-grid js-product-grid">
+
+    </div>
+  </section>
+
+  <script type="module" src="script/product-list-page.js"></script>
+</body>
+</html>

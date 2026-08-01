@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexMart</title>
+
+    <link rel="stylesheet" href="styles/body.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/home-page/main.css">
+    <link rel="stylesheet" href="styles/footer.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    </head>
+    <body>
+      
+    <header>
+
+        <div class="header-top">
+
+            <h1 class="logo">
+                <span class="logo-text">NexMart</span>
+                <span class="logo-version">1.0</span>
+                <img class="logo-mobile" src="images/icons/alphabet.png" alt="">
+            </h1>
+
+        </div>
+
+        <div class="header-middle">
+
+            <div class="search-box">
+
+                <div class="search-input" id="search">
+                    <img class="nav-icon" src="images/icons/search.svg" alt="">
+                    <input type="text" placeholder="Search for cars, phones, apartments...">
+                </div>
+
+                <button class="location-btn">
+                    <img class="nav-icon" src="images/icons/maps-and-flags.png" alt="">
+                    <span>Lagos</span>
+                    <img class="nav-icon" src="images/icons/down-chevron.png" alt="">
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="header-bottom">
+
+            <div class="nav-links">
+
+                <a href="#">
+                    <img class="nav-icon" src="images/icons/camera.png" alt="">
+                    <span>Sell</span>
+                </a>
+
+                <a href="#">
+                    <img class="nav-icon" src="images/icons/user (1).png" alt="">
+                    <span>My Account</span>
+                </a>
+
+                <a href="#" class="cart">
+                    <img class="nav-icon-cart" src="images/icons/shopping-cart.png" alt="">
+                    <p class="cart-count">8</p>
+                </a>
+
+            </div>
+
+        </div>
+
+    </header>
+
+        <section class="hero">
+            <h1>
+                Find Great Deals in
+                <span>Lagos,</span>
+                Nigeria
+            </h1>
+            <p>Buy & Sell Safely with Trusted Sellers</p>
+            <div class="categories js-categories">
+                
+            </div>
+        </section>
+
+        <section class="verified-section">
+            <div class="section-header">
+                <h2>Available Products</h2>
+                <div class="line"></div>
+                <a href="products-page.html" class="see-more">
+                    See More
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+            </div>
+
+            <div class="product-container js-product-container">
+                
+            </div>
+        </section>
+
+        <section class="budget-section">
+            <div class="budget-wrapper">
+                <div class="budget-left">
+                    <div class="budget-header">
+                        <h2>Browse by Budget</h2>
+                        <div class="line"></div>
+                    </div>
+                    <div class="budget-buttons">
+                        <div class="budget-buttons">
+                            <button data-min="0" data-max="50000">
+                                Under ₦50k
+                            </button>
+                            <button data-min="50000" data-max="200000">
+                                ₦50k - ₦200k
+                            </button>
+                            <button data-min="200000" data-max="500000">
+                                ₦200k - ₦500k
+                            </button>
+                            <button data-min="500000" data-max="Infinity">
+                                Above ₦500k
+                            </button>
+                        </div>
+                    </div>
+                    <div class="budget-products js-budget-products">
+                       
+                    </div>
+                </div>
+                <aside class="seller-card">
+                    <h3>Trusted Seller of the Week</h3>
+                    <div class="seller-profile">
+                        <img src="images/avatar.jpg" alt="">
+                        <div>
+                            <h4>Alabi Tech Hub</h4>
+                            <p>Power Seller</p>
+                        </div>
+                    </div>
+                    <div class="rating">⭐ 4.9 (450 Reviews)</div>
+                    <div class="stats">
+                        <p>1,200+ Sales</p>
+                        <p>50,000+ Sales</p>
+                    </div>
+                    <button>View Profile</button>
+                </aside>
+            </div>
+        </section>
+
+    <footer class="footer">
+
+        <div class="footer-top">
+            <div class="footer-logo">
+                <h2>NexMart <span>1.0</span></h2>
+                <p>Buy, sell and discover amazing deals from trusted sellers across Nigeria.</p>
+            </div>
+        </div>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Company</h3>
+                <a href="#">About Us</a>
+                <a href="#">Careers</a>
+                <a href="#">Blog</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+            <div class="footer-column">
+                <h3>Support</h3>
+                <a href="#">Help Center</a>
+                <a href="#">Contact Us</a>
+                <a href="#">FAQs</a>
+                <a href="#">Safety Tips</a>
+            </div>
+            <div class="footer-column">
+                <h3>Categories</h3>
+                <a href="#">Vehicles</a>
+                <a href="#">Phones</a>
+                <a href="#">Real Estate</a>
+                <a href="#">Fashion</a>
+            </div>
+            <div class="footer-column">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <img class="footer-icon" src="images/icons/communication.png" alt="">
+                    <img class="footer-icon" src="images/icons/twitter.png" alt="">
+                    <img class="footer-icon" src="images/icons/instagram.png" alt="">
+                    <img class="footer-icon" src="images/icons/linkedin-big-logo.png" alt="">
+                    
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 NexMart. All rights reserved.</p>
+        </div>
+    </footer>
+    <script type="module" src="script/home-page.js"></script>
+    </body>
+</html>

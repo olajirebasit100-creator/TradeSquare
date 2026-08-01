@@ -1,0 +1,176 @@
+.cart-container {
+margin: 40px auto;
+}
+
+.cart-items {
+display: flex;
+flex-direction: column;
+gap: 25px;
+}
+
+.cart-item {
+display: flex;
+gap: 25px;
+padding: 25px;
+background: #fff;
+border: 1px solid #e5e5e5;
+border-radius: 12px;
+}
+
+.cart-item img {
+width: 170px;
+height: 170px;
+object-fit: contain;
+background: #f8f8f8;
+padding: 15px;
+border-radius: 10px;
+}
+
+.item-details {
+display: flex;
+flex-direction: column;
+justify-content: center;
+flex: 1;
+}
+
+.item-details h3 {
+font-size: 24px;
+margin-bottom: 10px;
+}
+
+.item-price {
+font-size: 22px;
+font-weight: 700;
+color: #6dbd45;
+margin-bottom: 15px;
+}
+
+.item-details p {
+margin-bottom: 8px;
+color: #555;
+}
+
+.item-actions {
+display: flex;
+gap: 15px;
+margin-top: 20px;
+}
+
+.contact-btn {
+padding: 12px 20px;
+background: #6dbd45;
+color: #fff;
+border-radius: 8px;
+cursor: pointer;
+}
+
+.remove-btn {
+padding: 12px 20px;
+background: #fff;
+color: #d62828;
+border: 1px solid #d62828;
+border-radius: 8px;
+cursor: pointer;
+}
+
+@media(max-width:768px){
+
+
+  .cart-items {
+    width: 100%;
+  }
+.cart-item {
+flex-direction: column;
+align-items: center;
+text-align: center;
+}
+
+.cart-item img {
+width: 220px;
+height: 220px;
+}
+
+.item-actions {
+justify-content: center;
+flex-wrap: wrap;
+}
+
+}
+
+
+.cart-container {
+display: flex;
+align-items: flex-start;
+gap: 30px;
+margin: 40px 0;
+}
+
+.cart-items {
+flex: 1;
+}
+
+.cart-summary {
+width: 320px;
+padding: 25px;
+background: #fff;
+border: 1px solid #e5e5e5;
+border-radius: 12px;
+position: sticky;
+top: 20px;
+}
+
+.cart-summary h2 {
+margin-bottom: 25px;
+font-size: 24px;
+}
+
+.summary-row {
+display: flex;
+justify-content: space-between;
+margin-bottom: 18px;
+}
+
+.summary-row span {
+color: #666;
+}
+
+.summary-row p {
+font-weight: 600;
+}
+
+.total {
+padding-top: 18px;
+margin-top: 18px;
+border-top: 1px solid #e5e5e5;
+font-size: 18px;
+}
+
+.checkout-btn {
+width: 100%;
+padding: 14px;
+margin-top: 25px;
+background: #6dbd45;
+color: #fff;
+border-radius: 8px;
+font-size: 16px;
+font-weight: 600;
+cursor: pointer;
+transition: .3s;
+}
+
+.checkout-btn:hover {
+background: #5ca53a;
+}
+
+@media(max-width: 900px) {
+
+.cart-container {
+flex-direction: column-reverse;
+}
+
+.cart-summary {
+width: 100%;
+position: static;
+}
+
+}

@@ -1,0 +1,36 @@
+.cart-header{
+padding:18px 40px;
+background:#fff;
+margin:10px 0;
+}
+
+.cart-navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:20px;
+}
+
+.cart-title{
+font-size:20px;
+font-weight:500;
+}
+
+.cart-title span{
+font-size:20px;
+font-weight:500;
+color:#666;
+}
+
+.continue-shopping{
+padding:10px 18px;
+background:#6dbd45;
+color:#fff;
+border-radius:8px;
+font-weight:600;
+transition:.3s;
+}
+
+.continue-shopping:hover{
+background:#5aa53a;
+}
