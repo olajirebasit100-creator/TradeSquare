@@ -1,5 +1,8 @@
 import { products } from "../Data/products.js";
 
+
+let currentSearch = '';
+let currentSort = 'featured'
 function renderProducts() {
   
   const url = new URL(window.location.href);
@@ -7,12 +10,16 @@ function renderProducts() {
   const selectedCategory = url.searchParams.get('category')
 
   let filteredProducts = products;
+  
 
   if (selectedCategory) {
     filteredProducts = products.filter((product) => {
       return product.category === selectedCategory
     });
   };
+
+  filteredProducts = applySearchFilter(filteredProducts);
+  filteredProducts = applySort(filteredProducts);
 
 
   let productsCardHTML = '';
@@ -41,14 +48,14 @@ productsCardHTML += `
 `;
   });
   document.querySelector('.js-product-grid').innerHTML = productsCardHTML;
+
+  addProductCardEvents();
  
 }
 renderProducts();
 
-
-
-  document.querySelector('.js-available-product').innerHTML = products.length
-
+function addProductCardEvents() {
+  
   document.querySelectorAll(".js-product-card").forEach((card) => {
   card.addEventListener("click", () => {
     const productId = card.dataset.id;
@@ -57,13 +64,20 @@ renderProducts();
     console.log(productId)
   });
 });
+}
+
+
+
+  document.querySelector('.js-available-product').innerHTML = products.length
+
+
 // search filter
 const searchIput = document.getElementById('search');
 
-let currentSearch = '';
-
 searchIput.addEventListener('input', () => {
   currentSearch = searchIput.value;
+
+   renderProducts();
  
 });
 
@@ -72,7 +86,7 @@ function applySearchFilter(products) {
     return products
   }
 
-  const search = currentSearch.toLocaleLowerCase();
+  const search = currentSearch.toLowerCase();
   
   return products.filter((product) => {
     return (
@@ -83,5 +97,33 @@ function applySearchFilter(products) {
   });
 }
 
+// sort filter
+document.querySelector('.js-sort').addEventListener('change', (event) => {
+  currentSort = event.target.value
+  renderProducts();
+});
 
-applySearchFilter(products);
+function applySort(products) {
+
+  if (currentSort === 'featured') {
+    return products.filter((product) => {
+      return product.featured;
+    });
+  }
+
+  const sortedProducts = [...products];
+
+  if (currentSort === 'low-high') {
+    sortedProducts.sort((a, b) => a.price - b.price);
+  }
+
+  if (currentSort === 'high-low') {
+    sortedProducts.sort((a, b) => b.price - a.price);
+  }
+
+  if (currentSort === 'high-low') {
+    sortedProducts.sort((a, b) => b.price - a.price);
+  }
+
+  return sortedProducts
+};

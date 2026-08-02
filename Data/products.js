@@ -187,7 +187,7 @@ export const products = [
   {
   id: 6,
   title: "HP EliteBook X360 ",
-  price: 11200000,
+  price: 1120000,
 
   image:
     "images/products-list/hp-laptop.JPG",

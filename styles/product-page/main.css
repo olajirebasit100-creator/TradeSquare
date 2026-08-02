@@ -40,23 +40,30 @@
 }
 
 .product-gallery{
-    flex:0 1 450px;
+    flex:0 0 450px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .main-image{
     background:#f8f8f8;
+    aspect-ratio: 1/1;
     border:1px solid #e5e5e5;
     border-radius:15px;
     padding:30px;
+    width: 100%;
+    max-width: 400px;
+    
+    margin: 0 auto;
+    
 }
 
 .main-image img{
     width:100%;
-    max-width:400px;
-    max-height:400px;
+    height: 100%;
     object-fit:cover;
     display:block;
-    margin:auto;
     border-radius:10px;
 }
 
@@ -194,7 +201,7 @@
    Tablet
 ========================= */
 
-@media (max-width:768px){
+@media (max-width:868px){
 
     .product-details{
         flex-direction:column;
