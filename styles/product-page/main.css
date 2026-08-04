@@ -22,7 +22,7 @@ margin-bottom:50px;
 }
 
 .breadcrumb a:hover{
-    color:#6dbd45;
+    color:#2563EB;
 }
 
 .breadcrumb a{
@@ -80,7 +80,7 @@ border-radius:10px;
 
 .price{
     font-size:2rem;
-    color:#2ea84f;
+    color:#2563EB;
     font-weight:700;
     margin-bottom:20px;
 }
@@ -133,11 +133,11 @@ border-radius:10px;
 }
 
 .add-cart{
-    width:100%;
-    padding:16px;
+    
+    padding:10px;
     border:none;
     border-radius:10px;
-    background:#2ea84f;
+    background:#2563EB;
     color:#fff;
     font-size:18px;
     font-weight:600;

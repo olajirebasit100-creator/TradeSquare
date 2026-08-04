@@ -11,6 +11,10 @@ align-items:center;
 gap:20px;
 }
 
+.app-logo {
+  display: none;
+}
+
 .cart-title{
 font-size:20px;
 font-weight:500;
@@ -24,7 +28,7 @@ color:#666;
 
 .continue-shopping{
 padding:10px 18px;
-background:#6dbd45;
+background:#2563EB;
 color:#fff;
 border-radius:8px;
 font-weight:600;
@@ -32,5 +36,5 @@ transition:.3s;
 }
 
 .continue-shopping:hover{
-background:#5aa53a;
+background:#2563EB;
 }

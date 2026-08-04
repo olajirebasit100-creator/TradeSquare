@@ -1,4 +1,4 @@
-export let cart = [{
+export let cart = JSON.parse(localStorage.getItem('cart')) || [{
   productId: '1',
   quantity: 1
 },{
