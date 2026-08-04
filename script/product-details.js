@@ -1,4 +1,5 @@
 import { products } from "../Data/products.js";
+import { cart } from "../Data/cart.js";
 
 
 const url = new URL(window.location.href);
@@ -24,50 +25,111 @@ for (const key in product.specifications) {
 let productDetailsHTML = '';
 
 productDetailsHTML = `
-<div class='product-gallery'>
-  <div class='main-image'>
-    <img src='${product.image}' alt='${product.title}'>
+<div class="product-top">
+  <div class='product-gallery'>
+    <div class='main-image'>
+      <img src='${product.image}' alt='${product.title}'>
+    </div>
+  </div>
+
+  <div class='product-info'>
+    <h1>${product.title}</h1>
+
+    <p class='price'>₦${product.price}</p>
+
+    <div class='rating'>
+      ★★★★★
+      <span>(4.8 • 126 Reviews)</span>
+    </div>
+
+    <div class='product-meta'>
+      <p><strong>Condition:</strong> ${product.condition}</p>
+      <p><strong>Location:</strong> ${product.location}</p>
+      <p><strong>Seller:</strong> ${product.seller}</p>
+      <p><strong>Availability:</strong> In Stock</p>
+    </div>
+
+    <div class='quantity'>
+      <button class='decrease-btn js-decrease-btn'>-</button>
+
+      <span class='quantity-value js-quantity-value'>1</span>
+      <button class='increase-btn js-increase-btn'>+</button>
+    </div> 
+
+    <div class='cart-buttons-container'>
+      <button class='add-cart js-add-cart' data-product-id="${product.id}">Add to Cart</button>
+
+      <button class='add-cart'>Contact Seller</button>
+    </div>
   </div>
 </div>
 
-<div class='product-info'>
-  <h1>${product.title}</h1>
-
-  <p class='price'>₦${product.price}</p>
-
-  <div class='rating'>
-    ★★★★★
-    <span>(4.8 • 126 Reviews)</span>
+<div class="product-bottom">
+  <div class="description">
+      <h2>Description</h2>
+      <p>${product.description}</p>
   </div>
 
-  <div class='product-meta'>
-    <p><strong>Condition:</strong> ${product.condition}</p>
-    <p><strong>Location:</strong> ${product.location}</p>
-    <p><strong>Seller:</strong> ${product.seller}</p>
-    <p><strong>Availability:</strong> In Stock</p>
-  </div>
+  <div class='specifications'>
+    <h2>Specifications</h2>
 
-  <div class='quantity'>
-    <button class='decrease-btn'>-</button>
-
-    <span class='quantity-value'>1</span>
-
-    <button class='increase-btn'>+</button>
-  </div>
-
-  <div class='cart-buttons-container'>
-    <button class='add-cart'>Add to Cart</button>
-
-    <button class='add-cart'>Contact Seller</button>
-  </div>
-</div>
-
-<div class='product-specifications'>
-  <h2>Specifications</h2>
-
-  ${specificationsHTML}
+    ${specificationsHTML}
+    
   </div>
 </div>
 `;
 
 document.querySelector('.js-product-details').innerHTML = productDetailsHTML;
+
+ let quantity = 1 
+
+ function updateQuantity() {
+  document.querySelector('.js-quantity-value').innerHTML = quantity
+ }
+
+
+document.querySelector('.js-increase-btn').addEventListener('click', () => {
+ if (quantity < 10) {
+  quantity++
+ } else {
+  alert('cannot add more product')
+ }
+ updateQuantity();
+ console.log(quantity)
+})
+
+document.querySelector('.js-decrease-btn').addEventListener('click', () => {
+ 
+
+  if (quantity > 1) {
+    quantity--
+  } else {
+    alert('cannot reduce more quantity')
+  }
+  updateQuantity();
+});
+
+
+
+document.querySelector(".js-add-cart").addEventListener('click', () => {
+
+  const productId = event.target.dataset.productId;
+
+  let matchingItem ;
+
+   cart.find((item) => {
+      if (productId === item.productId) {
+        matchingItem = item
+      }
+    });
+    if (matchingItem) {
+      matchingItem.quantity += quantity
+    } else {
+      cart.push({
+        productId: productId,
+        quantity: quantity
+      })
+    }
+
+    console.log(cart)
+});
