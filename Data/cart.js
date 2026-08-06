@@ -8,4 +8,11 @@ export let cart = JSON.parse(localStorage.getItem('cart')) || [{
 
 export function saveToStorage() {
    localStorage.setItem('cart', JSON.stringify(cart))
+} 
+
+export function removeFromCart(productId) {
+  cart = cart.filter((item) => {
+    return item.productId !== productId
+  });
+  saveToStorage();
 }

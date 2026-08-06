@@ -18,7 +18,7 @@ import { heroCategories } from "../Data/products.js";
         </div>
         <div class="product-info">
           <h3>${product.title}</h3>
-          <h4>₦${product.price}</h4>
+          <h4>₦${product.price.toLocaleString()}</h4>
           <div class="location">
             <i class="fa-solid fa-location-dot"></i>
             ${product.location}
@@ -80,7 +80,7 @@ function renderBudgetProducts(products) {
           <img src="${product.image}" alt="">
           <div class="card-info">
             <h3>${product.title}</h3>
-            <h4>₦${product.price}</h4>
+            <h4>₦${product.price.toLocaleString()}</h4>
             <div class="location">
               <i class="fa-solid fa-location-dot"></i>
               <span>${product.location}</span>

@@ -37,7 +37,7 @@ productsCardHTML += `
         ${product.title}
       </h3>
 
-      <p class="product-price">₦${product.price}</p>
+      <p class="product-price">₦${product.price.toLocaleString()}</p>
 
       <div class="product-meta">
         <span>${product.location}</span>

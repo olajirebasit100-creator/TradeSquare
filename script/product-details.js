@@ -35,7 +35,7 @@ productDetailsHTML = `
   <div class='product-info'>
     <h1>${product.title}</h1>
 
-    <p class='price'>₦${product.price}</p>
+    <p class='price'>₦${product.price.toLocaleString()}</p>
 
     <div class='rating'>
       ★★★★★
