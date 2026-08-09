@@ -177,6 +177,28 @@ transition:.3s;
 background:#0b5ed7;
 }
 
+.empty-watchlist  {
+  margin: 20px 60px;
+  
+}
+
+ .see-more{
+    padding:8px 14px;
+    background:white;
+    border:2px solid #dcdcdc;
+    border-radius:10px;
+    display:flex;
+    max-width: 230px;
+    align-items:center;
+    font-weight:600;
+    margin: 0px 60px;
+    white-space: nowrap;
+}
+.see-more img{
+  width: 30px;
+  margin-left: 10px;
+}
+
 @media(max-width:992px){
 
 .watchlist-container{

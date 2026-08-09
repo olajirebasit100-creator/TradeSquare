@@ -57,7 +57,7 @@ productDetailsHTML = `
     </div> 
 
     <div class='cart-buttons-container'>
-      <button class='add-cart js-add-cart' data-product-id="${product.id}">Add to Cart</button>
+      <button class='add-cart js-add-cart' data-product-id="${product.id}">Add to Watchlist</button>
 
       <button class='add-cart'>Contact Seller</button>
     </div>
@@ -146,7 +146,7 @@ function updateCartQuantity() {
     cartQuantity += cartItem.quantity
   });
   console.log(cartQuantity);
-  document.querySelector('.js-cart-count').innerHTML = `(${cartQuantity} items)`
+  document.querySelector('.js-cart-count').innerHTML = `(${cart.length} items)`
 }
 updateCartQuantity();
 

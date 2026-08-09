@@ -71,7 +71,7 @@ function addProductCardEvents() {
   document.querySelector('.js-available-product').innerHTML = products.length
 
 
-// search filter
+// search filter 
 const searchIput = document.getElementById('search');
 
 searchIput.addEventListener('input', () => {

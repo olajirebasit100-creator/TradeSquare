@@ -1,4 +1,4 @@
-import { products } from "../Data/products.js";
+import { getMatchingProduct, products } from "../Data/products.js";
 import { cart, removeFromCart } from "../Data/cart.js";
 
 function renderWatchList() {
@@ -6,16 +6,14 @@ function renderWatchList() {
   let watchListHTML = '';
 
   cart.forEach((cartItem) => {
+    
 
-   const matchingProduct = products.find((product) => {
-      return product.id === Number(cartItem.productId)
-         
-    });
+   const matchingProduct = getMatchingProduct(cartItem.productId)
     
 
   watchListHTML += `
-    <div class="watchlist-card js-watchlist-cart-${matchingProduct.id}">
-      <div class="watchlist-image">
+    <div class="watchlist-card js-watchlist-cart-${matchingProduct.id}" >
+      <div class="watchlist-image js-watchlist-image" data-id="${matchingProduct.id}">
         <img src="${matchingProduct.image}" alt="${matchingProduct.title}">
       </div>
       <div class="watchlist-details">
@@ -29,7 +27,8 @@ function renderWatchList() {
           <p>Condition: ${matchingProduct.condition}</p>
 
         <div class="watchlist-actions">
-          <button class="contact-seller-btn">
+          <button class="contact-seller-btn js-contact-seller"
+          data-product-id="${matchingProduct.id}">
             Contact Seller
           </button>
           <button class="remove-btn js-remove-item"
@@ -44,18 +43,59 @@ function renderWatchList() {
   });
   document.querySelector('.js-saved-items').innerHTML = watchListHTML;
 
-  document.querySelectorAll(".js-remove-item").forEach((button) => {
-  button.addEventListener('click', () => {
-   const productId = button.dataset.productId
+  document.querySelector('.js-checklist-count').innerHTML = `(${cart.length} Items)`;
 
-    removeFromCart(productId)
-    const watchlistListContainer = document.querySelector(`.js-watchlist-cart-${productId}`)
-    watchlistListContainer.remove();
-    renderWatchList();  
-    console.log(cart)
+  gotoLocationPage();
+  contactSeller();
+
+  document.querySelectorAll(".js-remove-item").forEach((button) => {
+    button.addEventListener('click', () => {
+
+      const productId = button.dataset.productId;
+
+      removeFromCart(productId)
+
+      const watchlistListContainer = document.querySelector(`.js-watchlist-cart-${productId}`)
+      watchlistListContainer.remove();
+
+      renderWatchList();  
+    
+      
+    });
   })
-})
+
+
+  if (cart.length === 0) {
+    document.querySelector('.js-saved-items').innerHTML = `
+      
+        <h2 class="empty-watchlist">Your Watchlist is Empty</h2>
+
+        <a class="see-more" href="products-page.html">
+          Browse Products
+          <img src="images/icons/right-arrow.png" alt="">
+        </a>
+    `;
+  }
 };
 renderWatchList();
 
+function gotoLocationPage() {
+  document.querySelectorAll('.js-watchlist-image').forEach((card) => {
+    card.addEventListener('click', () => {
 
+      const productId = card.dataset.id;
+      window.location.href = `product-details.html?id=${productId}`;
+    });
+  });
+}
+
+ function contactSeller() {
+  document.querySelectorAll('.js-contact-seller').forEach(button => {
+  button.addEventListener('click', () => {
+
+    const matchingProduct = getMatchingProduct(button.dataset.productId)
+    
+    alert(`Contact ${matchingProduct.seller}`);
+  });
+});
+}

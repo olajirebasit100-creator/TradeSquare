@@ -1,3 +1,9 @@
+export function getMatchingProduct(productId) {
+  return products.find((product) => {
+    return product.id === Number(productId)
+  })
+}
+
 export const heroCategories = [
   {
     image: 'images/phones.jpg',
