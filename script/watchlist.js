@@ -99,3 +99,43 @@ function gotoLocationPage() {
   });
 });
 }
+
+
+function updateWatchlistSummary() {
+  let phonesQuantity = 0;
+  let vehicleQuantity = 0;
+  let fashionQuantity = 0;
+  let propertyQuantity = 0;
+  let elecronicsQuantoty = 0;
+  let homeQuantity = 0;
+
+
+  cart.forEach(cartItem => {
+    const matchingProduct = getMatchingProduct(cartItem.productId);
+
+    if (matchingProduct.category === 'Phones and Tablet') {
+      phonesQuantity ++ 
+    } else if (matchingProduct.category === 'Vehicles') {
+      vehicleQuantity ++;
+    } else if (matchingProduct.category === 'Fashion') {
+      fashionQuantity ++;
+    } else if (matchingProduct.category === 'Real Estate') {
+      propertyQuantity ++;
+    }else if (matchingProduct.category === 'Electronics') {
+      elecronicsQuantoty ++;
+    } else if (matchingProduct.category === 'Home') {
+      homeQuantity ++;
+    }
+    
+  })
+  document.querySelector('.js-saved-items-count').innerHTML = cart.length;
+
+  document.querySelector('.js-phone-count').innerHTML = phonesQuantity;
+  document.querySelector('.js-vehicle-count').innerHTML = vehicleQuantity;
+  document.querySelector('.js-fashion-count').innerHTML = fashionQuantity;
+  document.querySelector('.js-property-count').innerHTML = propertyQuantity;
+  document.querySelector('.js-electronics-count').innerHTML = elecronicsQuantoty;
+  document.querySelector('.js-home-count').innerHTML = homeQuantity;
+ 
+}
+updateWatchlistSummary();
