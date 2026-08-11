@@ -59,6 +59,8 @@ function renderWatchList() {
       watchlistListContainer.remove();
 
       renderWatchList();  
+      updateWatchlistSummary();
+      calculateListingValue();
     
       
     });
@@ -109,6 +111,8 @@ function updateWatchlistSummary() {
   let elecronicsQuantoty = 0;
   let homeQuantity = 0;
 
+ 
+
 
   cart.forEach(cartItem => {
     const matchingProduct = getMatchingProduct(cartItem.productId);
@@ -136,6 +140,33 @@ function updateWatchlistSummary() {
   document.querySelector('.js-property-count').innerHTML = propertyQuantity;
   document.querySelector('.js-electronics-count').innerHTML = elecronicsQuantoty;
   document.querySelector('.js-home-count').innerHTML = homeQuantity;
+
+ 
  
 }
 updateWatchlistSummary();
+
+function calculateListingValue() {
+
+  const combinedValue = cart.reduce((total, cartItem) => {
+  const matchingProduct = getMatchingProduct(cartItem.productId)
+
+  return total + matchingProduct.price;
+}, 0)
+
+document.querySelector('.js-combined-value').innerHTML =
+  `₦${combinedValue.toLocaleString()}`;
+}
+calculateListingValue();
+
+const recentlyAdded = cart.reduce((latestItem, cartItem) => {
+  if (cartItem.dateAdded > latestItem.dateAdded) {
+    return cartItem;
+  }
+
+  return latestItem;
+});
+const matchingProduct = getMatchingProduct(recentlyAdded.productId);
+
+document.querySelector('.js-last-added').innerHTML =
+  matchingProduct.title;

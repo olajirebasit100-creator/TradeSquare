@@ -24,7 +24,19 @@ for (const key in product.specifications) {
 
 let productDetailsHTML = '';
 
+
 productDetailsHTML = `
+<div class="breadcrumb">
+  <a href="NexMart.html">Home</a>
+  <span>›</span>
+  <a href="products-page.html">Products</a>
+  <span>›</span>
+  <a href="products-page.html?category=${product.category}">${product.category}</a>
+
+  <span>›</span>
+  <p>${product.title}</p>
+</div>
+
 <div class="product-top">
   <div class='product-gallery'>
     <div class='main-image'>
@@ -48,13 +60,6 @@ productDetailsHTML = `
       <p><strong>Seller:</strong> ${product.seller}</p>
       <p><strong>Availability:</strong> In Stock</p>
     </div>
-
-    <div class='quantity'>
-      <button class='decrease-btn js-decrease-btn'>-</button>
-
-      <span class='quantity-value js-quantity-value'>1</span>
-      <button class='increase-btn js-increase-btn'>+</button>
-    </div> 
 
     <div class='cart-buttons-container'>
       <button class='add-cart js-add-cart' data-product-id="${product.id}">Add to Watchlist</button>
@@ -86,32 +91,6 @@ document.querySelector('.js-product-details').innerHTML = productDetailsHTML;
  function updateQuantity() {
   document.querySelector('.js-quantity-value').innerHTML = quantity
  }
-
-
-document.querySelector('.js-increase-btn').addEventListener('click', () => {
- if (quantity < 10) {
-  quantity++
- } else {
-  alert('cannot add more product')
- }
- updateQuantity();
- console.log(quantity)
-})
-
-document.querySelector('.js-decrease-btn').addEventListener('click', () => {
- 
-
-  if (quantity > 1) {
-    quantity--
-  } else {
-    alert('cannot reduce more quantity')
-  }
-  updateQuantity();
-});
-
- 
-  ;
- 
  
 function addCart() {
   document.querySelector(".js-add-cart").addEventListener('click', () => {
@@ -128,12 +107,21 @@ function addCart() {
     } else {
       cart.push({
         productId: productId,
-        quantity: quantity
+        quantity: quantity,
+        dateAdded: Date.now()
       })
     }
    saveToStorage();
    updateCartQuantity();
-   console.log(cart);
+
+  const notification = document.querySelector('.js-watchlist-notification');
+
+  notification.classList.add('show');
+
+  setTimeout(() => {
+      notification.classList.remove('show');
+  }, 2500);
+
 });
 }
 addCart();
@@ -145,7 +133,7 @@ function updateCartQuantity() {
   cart.forEach((cartItem) => {
     cartQuantity += cartItem.quantity
   });
-  console.log(cartQuantity);
+  
   document.querySelector('.js-cart-count').innerHTML = `(${cart.length} items)`
 }
 updateCartQuantity();
