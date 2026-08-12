@@ -1,5 +1,6 @@
 import { products } from "../Data/products.js";
 import { heroCategories } from "../Data/products.js";
+import { cart } from "../Data/cart.js";
 
  
   function renderVerifiedSection(products) {
@@ -29,6 +30,8 @@ import { heroCategories } from "../Data/products.js";
     `
   });
    document.querySelector('.js-product-container').innerHTML = verifiedSectionHTML;
+
+   document.querySelector('.js-cart-count').innerHTML = `${cart.length}`;
 
    document.querySelectorAll(".js-product-card").forEach((card) => {
     card.addEventListener("click", () => {
@@ -137,8 +140,6 @@ buttons.forEach((button) => {
       }
 
        updateHomePage();
-
-     
   });
 });
 
@@ -151,24 +152,33 @@ let currentSearch = "";
 
 searchInput.addEventListener("input", () => {
   currentSearch = searchInput.value;
+
+    console.log("INPUT VALUE:", currentSearch);
+    console.log("INPUT TYPE:", typeof currentSearch);
+
   updateHomePage();
 });
 
 
 function applySearchFilter(products) {
-  if (currentSearch === "") {
-    return products;
-  }
+    console.log("currentSearch:", currentSearch);
+    console.log("currentSearch type:", typeof currentSearch);
 
-  const search = currentSearch.toLowerCase();
+    if (currentSearch === "") {
+        return products;
+    }
 
-  return products.filter(product => {
-    return (
-      product.title.toLowerCase().includes(search) ||
-      product.category.toLowerCase().includes(search) ||
-      product.location.toLowerCase().includes(search)
-    );
-  });
+    const search = currentSearch.toLowerCase();
+
+    return products.filter((product) => {
+        console.log("TITLE:", product.title, typeof product.title);
+        console.log("CATEGORY:", product.category, typeof product.category);
+
+        return (
+            product.title.toLowerCase().includes(search) ||
+            product.category.toLowerCase().includes(search)
+        );
+    });
 }
 
 

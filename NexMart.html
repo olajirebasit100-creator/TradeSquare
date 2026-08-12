@@ -32,16 +32,28 @@
 
             <div class="search-box">
 
-                <div class="search-input" id="search">
+                <div class="search-input">
                     <img class="nav-icon" src="images/icons/search.svg" alt="">
-                    <input type="text" placeholder="Search for cars, phones, apartments...">
+                    <input  id="search" type="text" placeholder="Search for cars, phones, apartments...">
                 </div>
 
-                <button class="location-btn">
+            <div class="location-container">
+
+                <button class="location-btn js-location-btn">
                     <img class="nav-icon" src="images/icons/maps-and-flags.png" alt="">
-                    <span>Lagos</span>
+                    <p class="location-text">Lagos</p>
                     <img class="nav-icon" src="images/icons/down-chevron.png" alt="">
                 </button>
+
+                <div class="location-dropdown js-location-dropdown">
+                    <button data-location="Lagos">Lagos</button>
+                    <button data-location="Abuja">Abuja</button>
+                    <button data-location="Ibadan">Ibadan</button>
+                    <button data-location="Port Harcourt">Port Harcourt</button>
+                    <button data-location="Enugu">Enugu</button>
+                </div>
+                
+            </div>
 
             </div>
 
@@ -63,7 +75,7 @@
 
                 <a href="checklist.html" class="cart">
                     <img class="nav-icon-cart" src="images/icons/shopping-cart.png" alt="">
-                    <p class="cart-count">8</p>
+                    <p class="cart-count js-cart-count"></p>
                 </a>
 
             </div>

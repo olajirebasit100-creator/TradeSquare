@@ -79,6 +79,51 @@ white-space: nowrap;
 transition: .3s;
 }
 
+
+.location-container{
+    position:relative;
+}
+
+.location-text{
+    margin:0;
+}
+
+.location-dropdown{
+    position:absolute;
+    top:calc(100% + 10px);
+    right:0;
+    width:180px;
+    background:#fff;
+    border:1px solid #e5e5e5;
+    border-radius:10px;
+    padding:8px;
+    box-shadow:0 8px 20px rgba(0,0,0,.1);
+    display:none;
+    z-index:100;
+}
+
+.location-dropdown.show{
+    display:flex;
+    flex-direction:column;
+}
+
+.location-dropdown button{
+    border:none;
+    background:#fff;
+    text-align:left;
+    padding:12px;
+    border-radius:7px;
+    cursor:pointer;
+    font-size:14px;
+}
+
+.location-dropdown button:hover{
+    background:#f5f5f5;
+}
+
+
+
+
 .location-btn:hover {
 border-color: #2563EB;
 }
