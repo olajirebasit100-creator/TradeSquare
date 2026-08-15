@@ -22,6 +22,15 @@ for (const key in product.specifications) {
   `;
 }
 
+let thumbnailsHTML = '';
+  console.log(product)
+  console.log(product.images)
+product.images.forEach((image) => {
+  thumbnailsHTML += `
+    <img src="${image}" alt="${product.title}">
+  `;
+});
+
 let productDetailsHTML = '';
 
 
@@ -42,6 +51,11 @@ productDetailsHTML = `
     <div class='main-image'>
       <img src='${product.image}' alt='${product.title}'>
     </div>
+    
+    <div class='image-thumbnails'>
+    ${thumbnailsHTML}
+  </div>
+
   </div>
 
   <div class='product-info'>

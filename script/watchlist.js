@@ -1,18 +1,18 @@
 import { getMatchingProduct, products } from "../Data/products.js";
-import { cart, removeFromCart, watchlist } from "../Data/cart.js";
+import {  removeFromWatchlist, watchlist } from "../Data/cart.js";
 
 function renderWatchList() {
 
   let watchListHTML = '';
 
-  cart.forEach((cartItem) => {
+  watchlist.forEach((item) => {
     
 
-   const matchingProduct = getMatchingProduct(cartItem.productId)
+   const matchingProduct = getMatchingProduct(item.productId)
     
 
   watchListHTML += `
-    <div class="watchlist-card js-watchlist-cart-${matchingProduct.id}" >
+    <div class="watchlist-card js-watchlist-${matchingProduct.id}" >
       <div class="watchlist-image js-watchlist-image" data-id="${matchingProduct.id}">
         <img src="${matchingProduct.image}" alt="${matchingProduct.title}">
       </div>
@@ -53,9 +53,9 @@ function renderWatchList() {
 
       const productId = button.dataset.productId;
 
-      removeFromCart(productId)
+      removeFromWatchlist(productId)
 
-      const watchlistListContainer = document.querySelector(`.js-watchlist-cart-${productId}`)
+      const watchlistListContainer = document.querySelector(`.js-watchlist-${productId}`)
       watchlistListContainer.remove();
 
       renderWatchList();  
@@ -67,7 +67,7 @@ function renderWatchList() {
   })
 
 
-  if (cart.length === 0) {
+  if (watchlist.length === 0) {
     document.querySelector('.js-saved-items').innerHTML = `
       
         <h2 class="empty-watchlist">Your Watchlist is Empty</h2>
@@ -114,8 +114,8 @@ function updateWatchlistSummary() {
  
 
 
-  cart.forEach(cartItem => {
-    const matchingProduct = getMatchingProduct(cartItem.productId);
+  watchlist.forEach(Item => {
+    const matchingProduct = getMatchingProduct(Item.productId);
 
     if (matchingProduct.category === 'Phones and Tablet') {
       phonesQuantity ++ 
@@ -132,7 +132,7 @@ function updateWatchlistSummary() {
     }
     
   })
-  document.querySelector('.js-saved-items-count').innerHTML = cart.length;
+  document.querySelector('.js-saved-items-count').innerHTML = watchlist.length;
 
   document.querySelector('.js-phone-count').innerHTML = phonesQuantity;
   document.querySelector('.js-vehicle-count').innerHTML = vehicleQuantity;
@@ -148,8 +148,8 @@ updateWatchlistSummary();
 
 function calculateListingValue() {
 
-  const combinedValue = cart.reduce((total, cartItem) => {
-  const matchingProduct = getMatchingProduct(cartItem.productId)
+  const combinedValue = watchlist.reduce((total, watchlistItem) => {
+  const matchingProduct = getMatchingProduct(watchlistItem.productId)
 
   return total + matchingProduct.price;
 }, 0)
@@ -159,9 +159,9 @@ document.querySelector('.js-combined-value').innerHTML =
 }
 calculateListingValue();
 
-const recentlyAdded = cart.reduce((latestItem, cartItem) => {
-  if (cartItem.dateAdded > latestItem.dateAdded) {
-    return cartItem;
+const recentlyAdded = watchlist.reduce((latestItem, watchListItem) => {
+  if (watchListItem.dateAdded > latestItem.dateAdded) {
+    return watchListItem;
   }
 
   return latestItem;

@@ -34,6 +34,13 @@ export const products = [
   price: 850000,
 
   image:"images/products-list/iphone.JPG",
+  images: [
+    "images/products-list/iphone.JPG",
+    "images/products-list/iphone.JPG",
+    "images/products-list/iphone.JPG",
+    "images/products-list/iphone.JPG",
+    "images/products-list/iphone.JPG"
+  ],
   category: "Phones and Tablet",
 
   rating: 4.8,
