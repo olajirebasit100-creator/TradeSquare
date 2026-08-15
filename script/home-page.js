@@ -1,5 +1,4 @@
-import { products } from "../Data/products.js";
-import { heroCategories } from "../Data/products.js";
+import { products, heroCategories } from "../Data/products.js";
 import { cart } from "../Data/cart.js";
 
  
@@ -112,6 +111,44 @@ function renderBudgetProducts(products) {
 }
 
 
+// LOCATION SEARCH  
+ let currentLocation = "";
+
+const locationButton = document.querySelector('.js-location-btn');
+const locationDropdown = document.querySelector('.js-location-dropdown');
+const locationText = document.querySelector('.location-text');
+
+locationButton.addEventListener('click', () => {
+    locationDropdown.classList.toggle('show');
+});
+
+const locationOptions = document.querySelectorAll('.js-location-dropdown button');
+
+locationOptions.forEach((button) => {
+    button.addEventListener('click', () => {
+      currentLocation = button.dataset.location 
+
+        locationText.innerHTML = currentLocation;
+        locationDropdown.classList.remove('show');
+
+        console.log(currentLocation)
+
+        updateHomePage();
+    });
+});
+
+function applyLocationFilter(products) {
+    if (currentLocation === "") {
+        return products;
+    }
+
+    return products.filter((product) => {
+        return product.location.includes(currentLocation);
+    });
+}
+
+       //SEARCH BY BUDGET
+
   let currentBudget = null;
 
 const buttons = document.querySelectorAll(".budget-buttons button");
@@ -152,18 +189,11 @@ let currentSearch = "";
 
 searchInput.addEventListener("input", () => {
   currentSearch = searchInput.value;
-
-    console.log("INPUT VALUE:", currentSearch);
-    console.log("INPUT TYPE:", typeof currentSearch);
-
   updateHomePage();
 });
 
 
 function applySearchFilter(products) {
-    console.log("currentSearch:", currentSearch);
-    console.log("currentSearch type:", typeof currentSearch);
-
     if (currentSearch === "") {
         return products;
     }
@@ -171,9 +201,7 @@ function applySearchFilter(products) {
     const search = currentSearch.toLowerCase();
 
     return products.filter((product) => {
-        console.log("TITLE:", product.title, typeof product.title);
-        console.log("CATEGORY:", product.category, typeof product.category);
-
+        
         return (
             product.title.toLowerCase().includes(search) ||
             product.category.toLowerCase().includes(search)
@@ -184,10 +212,11 @@ function applySearchFilter(products) {
 
 function updateHomePage() {
   let filteredProducts = applySearchFilter(products);
-  let budgetProducts = applySearchFilter(products);
+  
+
 
   if (currentBudget !== null) {
-    budgetProducts = budgetProducts.filter(product => {
+    filteredProducts = filteredProducts.filter(product => {
       return (
         product.price >= currentBudget.min &&
         product.price <= currentBudget.max
@@ -195,8 +224,10 @@ function updateHomePage() {
     });
   }
 
+  filteredProducts = applyLocationFilter(filteredProducts)
+
   renderVerifiedSection(filteredProducts.slice(0, 3));
-  renderBudgetProducts(budgetProducts.slice(0, 6));
+  renderBudgetProducts(filteredProducts.slice(0, 6));
 }
 
 updateHomePage();

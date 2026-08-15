@@ -1,5 +1,5 @@
 import { getMatchingProduct, products } from "../Data/products.js";
-import { cart, removeFromCart } from "../Data/cart.js";
+import { cart, removeFromCart, watchlist } from "../Data/cart.js";
 
 function renderWatchList() {
 
@@ -43,7 +43,7 @@ function renderWatchList() {
   });
   document.querySelector('.js-saved-items').innerHTML = watchListHTML;
 
-  document.querySelector('.js-checklist-count').innerHTML = `(${cart.length} Items)`;
+  document.querySelector('.js-checklist-count').innerHTML = `(${watchlist.length} Items)`;
 
   gotoLocationPage();
   contactSeller();

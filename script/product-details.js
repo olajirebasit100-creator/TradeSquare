@@ -1,5 +1,5 @@
 import { products } from "../Data/products.js";
-import { cart, saveToStorage } from "../Data/cart.js";
+import { watchlist, saveToStorage } from "../Data/cart.js";
 
 
 const url = new URL(window.location.href);
@@ -62,7 +62,7 @@ productDetailsHTML = `
     </div>
 
     <div class='cart-buttons-container'>
-      <button class='add-cart js-add-cart' data-product-id="${product.id}">Add to Watchlist</button>
+      <button class='add-cart js-add-watchlist' data-product-id="${product.id}">Add to Watchlist</button>
 
       <button class='add-cart'>Contact Seller</button>
     </div>
@@ -86,33 +86,28 @@ productDetailsHTML = `
 
 document.querySelector('.js-product-details').innerHTML = productDetailsHTML;
 
- let quantity = 1 
 
- function updateQuantity() {
-  document.querySelector('.js-quantity-value').innerHTML = quantity
- }
  
-function addCart() {
-  document.querySelector(".js-add-cart").addEventListener('click', () => {
+function addToWatchlist() {
+  document.querySelector(".js-add-watchlist").addEventListener('click', () => {
 
+    document.querySelector('.js-add-watchlist').innerHTML = 'Wachlist Added'
   const productId = event.target.dataset.productId;
-  
-  
-  const matchingItem = cart.find((item) => {
+
+  const matchingItem = watchlist.find((item) => {
       
     return item.productId === productId
     });
     if (matchingItem) {
-      matchingItem.quantity += quantity
+     
     } else {
-      cart.push({
+      watchlist.push({
         productId: productId,
-        quantity: quantity,
         dateAdded: Date.now()
       })
     }
    saveToStorage();
-   updateCartQuantity();
+   updateWatchlistQuantity();
 
   const notification = document.querySelector('.js-watchlist-notification');
 
@@ -120,23 +115,34 @@ function addCart() {
 
   setTimeout(() => {
       notification.classList.remove('show');
-  }, 2500);
+  }, 3000);
 
 });
 }
-addCart();
+addToWatchlist();
 
+function checkWatchlist() {
+  const productId = document.querySelector('.js-add-watchlist').dataset.productId
 
-function updateCartQuantity() {
-  let cartQuantity = 0;
-
-  cart.forEach((cartItem) => {
-    cartQuantity += cartItem.quantity
+  const matchingItem = watchlist.find((Item ) => {
+    return Item.productId === productId
   });
-  
-  document.querySelector('.js-cart-count').innerHTML = `(${cart.length} items)`
+
+  if (matchingItem) {
+    document.querySelector('.js-add-watchlist').innerHTML = 'Wachlist Added'
+  } else {
+     document.querySelector('.js-add-watchlist').innerHTML = 'Add to Watchlist'
+  }
+  saveToStorage();
+addToWatchlist();
+};
+checkWatchlist();
+
+function updateWatchlistQuantity() {
+ 
+  document.querySelector('.js-watchlist-count').innerHTML = `(${watchlist.length} items)`
 }
-updateCartQuantity();
+updateWatchlistQuantity();
 
 
 
