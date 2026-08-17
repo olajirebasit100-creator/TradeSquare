@@ -1,5 +1,5 @@
 import { products, heroCategories } from "../Data/products.js";
-import { cart } from "../Data/cart.js";
+import { watchlist } from "../Data/cart.js";
 
  
   function renderVerifiedSection(products) {
@@ -30,7 +30,7 @@ import { cart } from "../Data/cart.js";
   });
    document.querySelector('.js-product-container').innerHTML = verifiedSectionHTML;
 
-   document.querySelector('.js-cart-count').innerHTML = `${cart.length}`;
+   document.querySelector('.js-cart-count').innerHTML = `${watchlist.length}`;
 
    document.querySelectorAll(".js-product-card").forEach((card) => {
     card.addEventListener("click", () => {

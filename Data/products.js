@@ -36,7 +36,7 @@ export const products = [
   image:"images/products-list/iphone.JPG",
   images: [
     "images/products-list/iphone.JPG",
-    "images/products-list/iphone.JPG",
+    "images/products-list/hp-laptop.JPG",
     "images/products-list/iphone.JPG",
     "images/products-list/iphone.JPG",
     "images/products-list/iphone.JPG"
@@ -71,8 +71,14 @@ export const products = [
   title: "Toyota Camry 2018",
   price: 8500000,
 
-  image:
-    "images/products-list/toyota.JPG",
+  image:"images/products-list/toyota.JPG",
+   images: [
+    "images/products-list/iphone.JPG",
+    "images/products-list/hp-laptop.JPG",
+    "images/products-list/iphone.JPG",
+    "images/products-list/iphone.JPG",
+    "images/products-list/iphone.JPG"
+  ],
 
   category: "Vehicles",
 
@@ -107,6 +113,14 @@ export const products = [
   image:
     "images/products-list/2-bedroom.JPG",
 
+     images: [
+    "images/products-list/iphone.JPG",
+    "images/products-list/hp-laptop.JPG",
+    "images/products-list/iphone.JPG",
+    "images/products-list/iphone.JPG",
+    "images/products-list/iphone.JPG"
+  ],
+
   category: "Real Estate",
 
   rating: 5.0,
@@ -140,6 +154,14 @@ export const products = [
   image:
     "images/products-list/Brown-sneakers.JPG",
 
+     images: [
+    "images/products-list/iphone.JPG",
+    "images/products-list/hp-laptop.JPG",
+    "images/products-list/iphone.JPG",
+    "images/products-list/iphone.JPG",
+    "images/products-list/iphone.JPG"
+  ],
+
   category: "Fashion",
 
   rating: 4.0,
@@ -171,6 +193,14 @@ export const products = [
 
   image:
     "images/products-list/GalaxyA16.JPG",
+
+     images: [
+    "images/products-list/iphone.JPG",
+    "images/products-list/hp-laptop.JPG",
+    "images/products-list/iphone.JPG",
+    "images/products-list/iphone.JPG",
+    "images/products-list/iphone.JPG"
+  ],
 
   category: "Phones and Tablet",
 
@@ -205,6 +235,14 @@ export const products = [
   image:
     "images/products-list/hp-laptop.JPG",
 
+     images: [
+    "images/products-list/iphone.JPG",
+    "images/products-list/hp-laptop.JPG",
+    "images/products-list/iphone.JPG",
+    "images/products-list/iphone.JPG",
+    "images/products-list/iphone.JPG"
+  ],
+
   category: "Phones and Tablet",
 
   rating: 4.8,
@@ -238,6 +276,14 @@ export const products = [
   image:
     "images/products-list/FashionZara-complete.JPG",
 
+     images: [
+    "images/products-list/iphone.JPG",
+    "images/products-list/hp-laptop.JPG",
+    "images/products-list/iphone.JPG",
+    "images/products-list/iphone.JPG",
+    "images/products-list/iphone.JPG"
+  ],
+
   category: "Fashion",
 
   rating: 4.6,
@@ -269,6 +315,14 @@ export const products = [
 
   image:
     "images/products-list/center table.JPG",
+
+     images: [
+    "images/products-list/iphone.JPG",
+    "images/products-list/hp-laptop.JPG",
+    "images/products-list/iphone.JPG",
+    "images/products-list/iphone.JPG",
+    "images/products-list/iphone.JPG"
+  ],
 
   category: "Home",
 
@@ -302,6 +356,14 @@ export const products = [
   image:
     "images/products-list/Galaxy-S24Ultral.JPG",
 
+     images: [
+    "images/products-list/iphone.JPG",
+    "images/products-list/hp-laptop.JPG",
+    "images/products-list/iphone.JPG",
+    "images/products-list/iphone.JPG",
+    "images/products-list/iphone.JPG"
+  ],
+
   category: "Phones and Tablet",
 
   rating: 4.8,
@@ -333,6 +395,14 @@ export const products = [
 
   image:
     "images/products-list/marble finish wardrobe.JPG",
+
+     images: [
+    "images/products-list/iphone.JPG",
+    "images/products-list/hp-laptop.JPG",
+    "images/products-list/iphone.JPG",
+    "images/products-list/iphone.JPG",
+    "images/products-list/iphone.JPG"
+  ],
 
   category: "Home",
 
@@ -367,6 +437,14 @@ export const products = [
   image:
     "images/products-list/Google-pixel 9pro.JPG",
 
+     images: [
+    "images/products-list/iphone.JPG",
+    "images/products-list/hp-laptop.JPG",
+    "images/products-list/iphone.JPG",
+    "images/products-list/iphone.JPG",
+    "images/products-list/iphone.JPG"
+  ],
+
   category: "Phones and Tablet",
 
   rating: 4.6,
@@ -400,6 +478,13 @@ export const products = [
     title: "Samsung Smart TV",
     price: 650000,
     image: "images/products-list/samsung-tv.JPG",
+     images: [
+    "images/products-list/iphone.JPG",
+    "images/products-list/hp-laptop.JPG",
+    "images/products-list/iphone.JPG",
+    "images/products-list/iphone.JPG",
+    "images/products-list/iphone.JPG"
+  ],
     category: "Electronics",
     rating: 4.8,
     reviews: 182,
@@ -422,6 +507,13 @@ export const products = [
     title: "PlayStation 5 Console",
     price: 720000,
     image: "images/products-list/ps-5.JPG",
+     images: [
+    "images/products-list/iphone.JPG",
+    "images/products-list/hp-laptop.JPG",
+    "images/products-list/iphone.JPG",
+    "images/products-list/iphone.JPG",
+    "images/products-list/iphone.JPG"
+  ],
     category: "Electronics",
     rating: 4.9,
     reviews: 410,
@@ -444,6 +536,13 @@ export const products = [
     title: "Velvet Luxury Chair",
     price: 180000,
     image: "images/products-list/velvet luxury chair.JPG",
+     images: [
+    "images/products-list/iphone.JPG",
+    "images/products-list/hp-laptop.JPG",
+    "images/products-list/iphone.JPG",
+    "images/products-list/iphone.JPG",
+    "images/products-list/iphone.JPG"
+  ],
     category: "Home",
     rating: 4.5,
     reviews: 89,
@@ -466,6 +565,13 @@ export const products = [
     title: "MacBook Pro 2021 M1",
     price: 1450000,
     image: "images/products-list/mackbookpro 2021-m1.JPG",
+     images: [
+    "images/products-list/iphone.JPG",
+    "images/products-list/hp-laptop.JPG",
+    "images/products-list/iphone.JPG",
+    "images/products-list/iphone.JPG",
+    "images/products-list/iphone.JPG"
+  ],
     category: "Phones and Tablet",
     rating: 4.9,
     reviews: 215,
@@ -488,6 +594,13 @@ export const products = [
     title: "Casual Sport Sneakers",
     price: 45000,
     image: "images/products-list/sneakers.JPG",
+     images: [
+    "images/products-list/iphone.JPG",
+    "images/products-list/hp-laptop.JPG",
+    "images/products-list/iphone.JPG",
+    "images/products-list/iphone.JPG",
+    "images/products-list/iphone.JPG"
+  ],
     category: "Fashion",
     rating: 4.4,
     reviews: 120,

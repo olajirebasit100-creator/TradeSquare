@@ -1,4 +1,4 @@
-import { products } from "../Data/products.js";
+import { getMatchingProduct, products } from "../Data/products.js";
 import { watchlist, saveToStorage } from "../Data/cart.js";
 
 
@@ -6,13 +6,11 @@ const url = new URL(window.location.href);
 
 const productId = Number(url.searchParams.get('id'));
 
-const product = products.find((product) => {
-  return product.id === productId;
-});
+const product = getMatchingProduct(productId)
 
 
   let specificationsHTML = '';
-
+ 
 for (const key in product.specifications) {
   specificationsHTML += `
     <div class='spec-row'>
@@ -23,11 +21,10 @@ for (const key in product.specifications) {
 }
 
 let thumbnailsHTML = '';
-  console.log(product)
-  console.log(product.images)
+
 product.images.forEach((image) => {
   thumbnailsHTML += `
-    <img src="${image}" alt="${product.title}">
+    <img class="js-thumbnails" src="${image}" alt="${product.title}">
   `;
 });
 
@@ -49,10 +46,10 @@ productDetailsHTML = `
 <div class="product-top">
   <div class='product-gallery'>
     <div class='main-image'>
-      <img src='${product.image}' alt='${product.title}'>
+      <img class="js-main-image" src='${product.image}' alt='${product.title}'>
     </div>
     
-    <div class='image-thumbnails'>
+    <div class="image-thumbnails">
     ${thumbnailsHTML}
   </div>
 
@@ -100,6 +97,12 @@ productDetailsHTML = `
 
 document.querySelector('.js-product-details').innerHTML = productDetailsHTML;
 
+document.querySelectorAll('.js-thumbnails').forEach((thumbnail) => {
+  thumbnail.addEventListener('click', () => {
+    
+    document.querySelector('.js-main-image').src = thumbnail.src
+  })
+})
 
  
 function addToWatchlist() {
