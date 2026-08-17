@@ -30,6 +30,8 @@ import { watchlist } from "../Data/cart.js";
   });
    document.querySelector('.js-product-container').innerHTML = verifiedSectionHTML;
 
+   document.querySelector('.js-location-change').innerHTML = locationText.innerHTML
+
    document.querySelector('.js-cart-count').innerHTML = `${watchlist.length}`;
 
    document.querySelectorAll(".js-product-card").forEach((card) => {
