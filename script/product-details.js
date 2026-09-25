@@ -7,6 +7,7 @@ const url = new URL(window.location.href);
 const productId = Number(url.searchParams.get('id'));
 
 const product = getMatchingProduct(productId)
+console.log(product)
 
 
   let specificationsHTML = '';
